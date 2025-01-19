@@ -1,7 +1,8 @@
 from random import shuffle
+from card import Card
 
 class Deck:
-    cards = {
+    _cards = {
         1: "Ace",
         2: "Two",
         3: "Three",
@@ -17,16 +18,18 @@ class Deck:
         13: "King"
     }
     
-    suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
+    _suits = ("Hearts", "Diamonds", "Clubs", "Spades")
     
     def __init__(self):
         self.deck = self.generateDeck()
         
     def generateDeck(self):
         full_deck = []
-        for suit in self.suits:
-            for card in self.cards.values():
-                full_deck.append(f"{card} of {suit}")
+
+        for suit in self._suits:
+            for card_value in self._cards.values():
+                newCard = Card(suit, card_value)
+                full_deck.append(newCard)
         return full_deck
 
     def shuffleDeck(self):
@@ -34,4 +37,4 @@ class Deck:
 
     def showDeck(self):
         for card in self.deck:
-            print(card)
+            print(f"{card.value} of {card.suit}")
