@@ -1,10 +1,15 @@
 from deck import Deck
 
 def main():
-    newDeck = Deck()
-    newDeck.showDeck()
-    newDeck.shuffleDeck()
-    print('\n')
-    newDeck.showDeck()
     
+    newDeck = Deck()
+    print(str(newDeck))
+
+    newDeck.shuffleDeck()
+    print(str(newDeck))
+
+    newDeck.sortDeck()
+    print(str(newDeck))
+    
+
 main()
