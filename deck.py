@@ -24,6 +24,7 @@ class Deck:
         self.deck = self.generateDeck()
         self.length = len(self.deck)
         self.shuffled = False
+        self.sorted = False
         
     def generateDeck(self):
         full_deck = []
@@ -45,8 +46,32 @@ class Deck:
         self.deck = shuffledDeck
         self.shuffled = True
 
+    def sortDeck(self):
+        for deck_range in range(self.length - 1, 0 , -1):
+            for current_card in range(deck_range):
+                if self.deck[current_card].value > self.deck[current_card + 1].value:
+                    self.deck[current_card], self.deck[current_card + 1] = self.deck[current_card + 1], self.deck[current_card]
+
+        self.shuffled = False
+        self.sorted = True
+
     def showDeck(self):
-        if(self.shuffled):
+        if self.shuffled:
             print("\nShuffled deck:")
+        elif self.sorted:
+            print("\nSorted deck:")
         for card in self.deck:
             print(f"{card.card_type} of {card.suit} with a value of {card.value}")
+
+    def __str__(self):
+        card_strings = []
+
+        for card in self.deck:
+            card_strings.append(f"{card.card_type} of {card.suit} with a value of {card.value}")
+
+        if self.shuffled:
+            return "\nShuffled:\n" + '\n'.join(card_strings)
+        elif self.sorted:
+            return "\nSorted:\n" + '\n'.join(card_strings)
+
+        return '\n'.join(card_strings)
