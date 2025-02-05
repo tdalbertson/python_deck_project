@@ -1,15 +1,15 @@
 from deck import Deck
+from hand import Hand
 
 def main():
     
     newDeck = Deck()
-    print(str(newDeck))
-
     newDeck.shuffleDeck()
-    print(str(newDeck))
 
-    newDeck.sortDeck()
-    print(str(newDeck))
+    newHand = Hand()
+
+    newHand.buildHand("BlackJack", newDeck)
     
+    print(str(newHand))
 
 main()
