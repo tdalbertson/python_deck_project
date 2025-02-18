@@ -22,7 +22,7 @@ class Deck:
     
     def __init__(self):
         self.deck = self.generateDeck()
-        self.length = len(self.deck)
+        self.length = self.getDeckSize(self.deck)
         self.shuffled = False
         self.sorted = False
         
@@ -35,6 +35,9 @@ class Deck:
                 full_deck.append(newCard)
 
         return full_deck
+
+    def getDeckSize(self, deck):
+        return len(self.deck)
 
     def shuffleDeck(self):
         shuffledDeck = []
@@ -75,3 +78,6 @@ class Deck:
             return "\nSorted:\n" + '\n'.join(card_strings)
 
         return '\n'.join(card_strings)
+    
+    def __len__(self):
+        return self.getDeckSize(self)
