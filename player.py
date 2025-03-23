@@ -6,4 +6,4 @@ class Player():
 
     def drawCard(self, deck, numOfCards):
         for _ in range(numOfCards):
-            self.playerHand.addCard(deck.pop())
+            self.playerHand.addCard(deck.deck.pop())
