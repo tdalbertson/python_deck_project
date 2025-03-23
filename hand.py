@@ -1,12 +1,11 @@
 from deck import Deck
 
-class Hand(Deck):
+class Hand():
     def __init__(self):
-        super().__init__()
-        self.deck = []
+        self.cards = []
     
-    def drawCard(self, currentDeck: Deck, numOfCards: int, hand: list):
-        for card in range(0, numOfCards):
-            hand.append(currentDeck.deck.pop(0))
+    def addCard(self, card):
+        self.cards.append(card)
 
-        return hand
+    def __str__(self):
+        return ", ".join(str(card) for card in self.cards)
