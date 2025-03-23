@@ -1,9 +1,9 @@
-from deck import Deck
+from hand import Hand
 
 class Player():
     def __init__(self, hand):
         self.playerHand = hand
 
     def drawCard(self, deck, numOfCards):
-        for card in range(0, numOfCards + 1):
-            self.playerHand.append(deck.pop())
+        for _ in range(numOfCards):
+            self.playerHand.addCard(deck.pop())
