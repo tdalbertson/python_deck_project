@@ -9,3 +9,6 @@ class Hand():
 
     def __str__(self):
         return ", ".join(str(card) for card in self.cards)
+
+    def __len__(self):
+        return len(self.cards)
