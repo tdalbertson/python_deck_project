@@ -67,10 +67,7 @@ class Deck:
             print(f"{card.card_type} of {card.suit} with a value of {card.value}")
 
     def __str__(self):
-        card_strings = []
-
-        for card in self.deck:
-            card_strings.append(f"{card.card_type} of {card.suit} with a value of {card.value}")
+        card_strings = [str(card) for card in self.deck]
 
         if self.shuffled:
             return "\nShuffled:\n" + '\n'.join(card_strings)
@@ -80,4 +77,4 @@ class Deck:
         return '\n'.join(card_strings)
     
     def __len__(self):
-        return self.getDeckSize(self)
+        return self.getDeckSize()
