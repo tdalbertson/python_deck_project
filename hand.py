@@ -7,6 +7,9 @@ class Hand():
     def addCard(self, card):
         self.cards.append(card)
 
+    def showHand(self):
+        print("Current hand:",self.__str__())
+
     def __str__(self):
         return ", ".join(str(card) for card in self.cards)
 
