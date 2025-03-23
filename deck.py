@@ -31,7 +31,10 @@ class Deck:
 
         for suit in self._suits:
             for card_value in self._cards.keys():
-                newCard = Card(suit, self._cards[card_value], card_value)
+                if card_value == 11 or card_value == 12 or card_value == 13:
+                    newCard = Card(suit, self._cards[card_value], 10)
+                else:
+                    newCard = Card(suit, self._cards[card_value], card_value)
                 full_deck.append(newCard)
 
         return full_deck
